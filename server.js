@@ -11,12 +11,13 @@ app.use(express.static('public'));
 const connectDB = require('./config/db');
 connectDB();
 
-// cors
-const corsOptions = {
-  origin: 'https://in-share-frontend.vercel.app'
-}
 
-app.use(cors(corsOptions));
+// Allow only your deployed frontend
+app.use(cors({
+  origin: 'https://in-share-frontend.vercel.app',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 app.get('/api/files', (req, res) => {
   request(
