@@ -13,7 +13,7 @@ connectDB();
 
 // cors
 const corsOptions = {
-  origin: process.env.ALLOWED_CLIENTS.split(',')
+  origin: 'https://in-share-frontend.vercel.app'
 }
 
 app.use(cors(corsOptions));
